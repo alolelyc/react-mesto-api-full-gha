@@ -1,0 +1,9 @@
+.popup__info-tool {
+   box-sizing: border-box;
+    position: relative;
+    width: 430px;
+    height: 330px;
+    border-radius: 10px;
+    background-color: #fff;
+    
+}

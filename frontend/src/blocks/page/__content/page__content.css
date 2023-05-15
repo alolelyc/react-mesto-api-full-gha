@@ -1,0 +1,19 @@
+.page__content {
+  /*margin: 34px auto 67px;*/
+
+  max-width: 880px;
+  padding: 0;
+}
+
+@media screen and (max-width: 984px) {
+  .page__content {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .page__content {
+    /*margin: 42px 19px 48px;*/
+    max-width: 282px;
+  }
+}

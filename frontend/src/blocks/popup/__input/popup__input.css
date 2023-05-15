@@ -1,0 +1,15 @@
+.popup__input {
+  max-width: 358px;
+  width: 100%;
+  padding: 0 0 13px 0;
+}
+
+.popup__input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 568px) {
+  .popup__input {
+    max-width: 238px;
+  }
+}

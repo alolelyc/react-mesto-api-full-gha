@@ -1,0 +1,19 @@
+.profile__info-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 984px) {
+  .profile__info-title {
+    margin-bottom: 10px;
+    max-width: 282px;
+    width: 100%;
+  }
+}
