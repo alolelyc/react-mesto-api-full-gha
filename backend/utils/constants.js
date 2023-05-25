@@ -6,7 +6,7 @@ const ERR_STATUS_NOT_FOUND_404 = 404;
 const ERR_STATUS_CONFLICT_409 = 409;
 const ERR_STATUS_INTERNAL_SERVER_500 = 500;
 
-const REGEX = /https?:\/\/[^\s"]+$/m;
+const REGEX = /https?:\/\/w{0,3}\.?[\w0-9-]{1,10}\.\w{2,3}[\w\d\-._~:/?#[\]@!$&'()*+,;=]{0,}/m;
 
 module.exports = {
   ERR_STATUS_CREATED_201,

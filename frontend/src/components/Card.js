@@ -6,9 +6,7 @@ function Card({ card, onClickCard, onCardLike, onCardDelete }) {
   const isOwn = card.owner._id === currentUser._id;
 
   const isLiked = card.likes.some((i) => i._id === currentUser._id);
-  const cardLikeButtonClassName = `card__like-button ${
-    isLiked && "card__like-button_active"
-  }`;
+  const cardLikeButtonClassName = `card__like-button ${isLiked && "card__like-button_active"}`;
 
   function handleClickCard() {
     onClickCard(card);

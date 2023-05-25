@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import EditProfilePopup from "./EditProfilePopup";
@@ -64,14 +64,14 @@ function App() {
   }
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
+    const token = localStorage.getItem("jwt");
+    if (token) {
       auth
-        .getToken(jwt)
+        .getToken(token)
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            setIsEmailUser(res.data.email);
+            setIsEmailUser(res.email);
             navigate("/", { replace: true });
           }
         })
@@ -88,6 +88,7 @@ function App() {
   }, [isLoggedIn, navigate]);
 
   useEffect(() => {
+
     if (isLoggedIn) {
       Promise.all([api.getProfileInfo(), api.getServerCards()])
         .then(([userData, initialCards]) => {
@@ -124,6 +125,7 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
+
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -136,12 +138,12 @@ function App() {
       });
   }
 
-  function handleDeleteCard(cardId) {
-    //.
+  function handleDeleteCard(card) {
     api
-      .deleteCard(cardId)
+      .deleteCard(card)
       .then(() => {
-        setCards((state) => state.filter((c) => c._id !== cardId));
+        setCards((state) => state.filter((c) => c._id !== card));
+
       })
       .catch((err) => {
         console.log(err);
@@ -189,6 +191,7 @@ function App() {
       .renderCard({
         name: name,
         link: link,
+
       })
       .then((newCard) => {
         setIsLoading(!isLoading);
