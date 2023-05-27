@@ -15,7 +15,7 @@ export function regUser(email, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(verifyResponse);
+  }).then((res) => verifyResponse(res));
 }
 
 export function loginUser(email, password) {
@@ -27,7 +27,7 @@ export function loginUser(email, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(verifyResponse);
+  }).then((res) => verifyResponse(res));
 }
 
 export function getToken() {
@@ -39,5 +39,5 @@ export function getToken() {
       "Content-Type": "application/json",
 
     },
-  }).then(verifyResponse);
+  }).then((res) => verifyResponse(res));
 }
