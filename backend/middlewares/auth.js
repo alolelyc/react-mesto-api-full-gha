@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/UnauthorizedError401');
+const JWT_SECRET = require('../utils/config');
 
 module.exports = (req, res, next) => {
   // достаём авторизационный заголовок
@@ -12,7 +13,7 @@ module.exports = (req, res, next) => {
 
   try {
     // попытаемся верифицировать токен
-    payload = jwt.verify(token, '2ce5a11f23d0823900a422f26dd4e9918701a6adaddfd3888ac5acf48833fa5d');
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     return next(new UnauthorizedError('Необходима авторизация'));
   }

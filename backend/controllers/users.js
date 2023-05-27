@@ -7,6 +7,7 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/BadRequest400');
 const NotFoundError = require('../errors/NotFoundError404');
 const ConflictError = require('../errors/ConflictError409');
+const JWT_SECRET = require('../utils/config');
 
 const {
   ERR_STATUS_CREATED_201,
@@ -75,7 +76,7 @@ module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, '2ce5a11f23d0823900a422f26dd4e9918701a6adaddfd3888ac5acf48833fa5d', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
       res.cookie('jwt', token, { maxAge: 3600000, httpOnly: true }).send({ token });
     })
     .catch(next);
