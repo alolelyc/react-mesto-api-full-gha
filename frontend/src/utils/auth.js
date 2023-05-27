@@ -1,4 +1,4 @@
-export const BASE_URL = "https:/api.alolelyc.nomoredomains.rocks";
+export const BASE_URL = "https://api.alolelyc.nomoredomains.rocks";
 
 function verifyResponse(res) {
   if (res.ok) {
