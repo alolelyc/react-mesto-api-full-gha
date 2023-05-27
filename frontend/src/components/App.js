@@ -67,7 +67,7 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (token) {
       auth
-        .getToken(token)
+        .getToken()
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
