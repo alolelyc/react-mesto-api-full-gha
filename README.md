@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.37.126
+IP 158.160.37.126
 
 Frontend https://alolelyc.nomoredomains.monster
 

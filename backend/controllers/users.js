@@ -119,8 +119,8 @@ module.exports.updateAvatar = (req, res, next) => {
       res.send(user);
     })
     .catch((err) => {
-      if (err instanceof CastError) {
-        next(new BadRequestError('Некорректный id пользователя'));
+      if (err instanceof ValidationError) {
+        next(new BadRequestError('Некорректные данные при обновлении пользователя'));
       } else {
         next(err);
       }

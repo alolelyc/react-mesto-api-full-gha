@@ -19,7 +19,7 @@ class Api {
       method: "GET",
       credentials: 'include',
       headers: this._headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     }).then((res) => this._verifyResponse(res));
   }
 
@@ -29,7 +29,7 @@ class Api {
       method: "PATCH",
       credentials: 'include',
       headers: this._headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       body: JSON.stringify({
         name: name,
         about: about,
@@ -42,7 +42,7 @@ class Api {
       method: "PATCH",
       credentials: 'include',
       headers: this._headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -55,7 +55,7 @@ class Api {
       method: "GET",
       credentials: 'include',
       headers: this._headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     }).then((res) => this._verifyResponse(res));
   }
 
@@ -65,7 +65,7 @@ class Api {
       method: "POST",
       credentials: 'include',
       headers: this._headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       body: JSON.stringify({
         name: item.name,
         link: item.link,
@@ -80,7 +80,7 @@ class Api {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then((res) => this._verifyResponse(res));
   }
@@ -119,7 +119,7 @@ class Api {
       method: "DELETE",
       credentials: 'include',
       headers: this._headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     }).then((res) => this._verifyResponse(res));
   }
 }
@@ -130,7 +130,7 @@ const api = new Api({
     //authorization: "8d43be2a-82a5-43e7-b68e-9400e1814337",
     'Accept': 'application/json',
     "Content-Type": "application/json",
-    "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
+    //"Authorization": `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 

@@ -27,15 +27,15 @@ app.use(cors);
 
 app.use(requestLogger); // подключаем логгер запросов
 
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.post('/signup', validationCreateUser, createUser);
 app.post('/signin', validationLogin, login);
