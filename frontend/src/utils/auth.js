@@ -10,7 +10,6 @@ function verifyResponse(res) {
 export function regUser(email, password) {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
-    credentials: 'include',
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
