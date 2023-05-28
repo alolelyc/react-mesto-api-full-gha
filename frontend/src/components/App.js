@@ -62,7 +62,7 @@ function App() {
       .finally(handleTooltip);
   }
 
-  /*useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
       auth
@@ -70,7 +70,7 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            setIsEmailUser(res.email);
+            setIsEmailUser(res.user.email);
             navigate("/", { replace: true });
           }
         })
@@ -84,7 +84,7 @@ function App() {
     if (isLoggedIn === true) {
       navigate("/", { replace: true });
     }
-  }, [isLoggedIn, navigate]);*/
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
 
