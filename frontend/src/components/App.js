@@ -36,7 +36,7 @@ function App() {
     auth
       .loginUser(email, password)
       .then((res) => {
-        setIsEmailUser(res.user.email);
+        setIsEmailUser(email);
         setIsLoggedIn(true);
         navigate("/");
       })
