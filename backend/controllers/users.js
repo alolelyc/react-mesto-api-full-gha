@@ -8,7 +8,7 @@ const BadRequestError = require('../errors/BadRequest400');
 const NotFoundError = require('../errors/NotFoundError404');
 const ConflictError = require('../errors/ConflictError409');
 
-const { JWT_SECRET } = process.env;
+const JWT_SECRET = require('../utils/config');
 
 const {
   ERR_STATUS_CREATED_201,
@@ -75,10 +75,20 @@ module.exports.createUser = (req, res, next) => {
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
-  return User.findUserByCredentials(email, password)
+
+  User.findUserByCredentials(email, password)
     .then((user) => {
+      // создадим токен
       const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-      res.cookie('jwt', token, { maxAge: 3600000, httpOnly: true, sameSite: true }).send({ token });
+      // отправим токен, браузер сохранит его в куках
+      res.cookie('jwt', token, {
+        // token - наш JWT токен, который мы отправляем
+        maxAge: 3600000 * 24 * 7,
+        httpOnly: true,
+        sameSite: true, // указали браузеру посылать куки, только если запрос с того же домена
+      })
+        // отправим токен пользователю
+        .send({ token });
     })
     .catch(next);
 };
