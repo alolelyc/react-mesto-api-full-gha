@@ -19,7 +19,7 @@ const cors = (req, res, next) => {
 
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
+    res.header('Access-Control-Allow-Headers', requestHeaders, ['Content-Type', 'Authorization']);
 
     return res.end();
   }
