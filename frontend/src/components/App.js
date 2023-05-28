@@ -36,9 +36,8 @@ function App() {
     auth
       .loginUser(email, password)
       .then((res) => {
-        localStorage.setItem("jwt", res.token);
+        setIsEmailUser(res.user.email);
         setIsLoggedIn(true);
-        setIsEmailUser(email);
         navigate("/");
       })
       .catch(() => {
