@@ -62,7 +62,7 @@ function App() {
       .finally(handleTooltip);
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
       auth
@@ -84,7 +84,7 @@ function App() {
     if (isLoggedIn === true) {
       navigate("/", { replace: true });
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn, navigate]);*/
 
   useEffect(() => {
 
@@ -217,7 +217,7 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setIsEmailUser(null);
-    navigate("/sign-in");
+    navigate("/signin");
   }
 
   return (
@@ -225,20 +225,20 @@ function App() {
       <div className="page">
         <Routes>
           <Route
-            path="/sign-in"
+            path="/signin"
             element={
               <>
-                <Header title="Регистрация" route="/sign-up" />
+                <Header title="Регистрация" route="/signup" />
                 <Login onLogin={onLogin} />
               </>
             }
           />
 
           <Route
-            path="/sign-up"
+            path="/signup"
             element={
               <>
-                <Header title="Войти" route="/sign-in" />
+                <Header title="Войти" route="/signin" />
                 <Register onRegister={onRegister} />
               </>
             }
@@ -246,7 +246,7 @@ function App() {
 
           <Route
             path="*"
-            element={<Navigate to={isLoggedIn ? "/" : "/sign-in"} />}
+            element={<Navigate to={isLoggedIn ? "/" : "/signin"} />}
           />
 
           <Route
