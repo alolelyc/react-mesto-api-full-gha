@@ -9,6 +9,7 @@ function verifyResponse(res) {
 
 export function regUser(email, password) {
   return fetch(`${BASE_URL}/signup`, {
+    mode: 'no-cors',
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -20,6 +21,7 @@ export function regUser(email, password) {
 
 export function loginUser(email, password) {
   return fetch(`${BASE_URL}/signin`, {
+    mode: 'no-cors',
     method: "POST",
     credentials: 'include',
     headers: {
