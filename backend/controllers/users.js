@@ -7,7 +7,8 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/BadRequest400');
 const NotFoundError = require('../errors/NotFoundError404');
 const ConflictError = require('../errors/ConflictError409');
-const JWT_SECRET = require('../utils/config');
+
+const { JWT_SECRET } = process.env;
 
 const {
   ERR_STATUS_CREATED_201,
