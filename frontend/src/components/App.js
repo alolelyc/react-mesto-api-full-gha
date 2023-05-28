@@ -38,7 +38,9 @@ function App() {
       .then((res) => {
         setIsEmailUser(res.user.email);
         setIsLoggedIn(true);
+        localStorage.setItem("jwt", res.token);
         navigate("/");
+
       })
       .catch(() => {
         setPopupAnswer(isFalse);
