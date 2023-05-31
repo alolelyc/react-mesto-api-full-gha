@@ -36,7 +36,7 @@ function App() {
     auth
       .loginUser(email, password)
       .then((res) => {
-        setIsEmailUser(res.user.email);
+        setIsEmailUser(res.email);
         setIsLoggedIn(true);
         localStorage.setItem("jwt", res.token);
         navigate("/");
@@ -72,7 +72,7 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            setIsEmailUser(res.user.email);
+            setIsEmailUser(res.email);
             navigate("/", { replace: true });
           }
         })
